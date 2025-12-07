@@ -1,13 +1,14 @@
 import React from 'react'
 import Login from './login'
 import logo from '../assets/images/logo.png'
+import BgImg from '../assets/images/bg.jpg'
 const Home = () => {
   return (
     <>
       <div className="relative w-full h-screen overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center blur-sm scale-110"
-          style={{ backgroundImage: "url('/src/assets/images/bg.jpg')" }}
+          style={{ backgroundImage: `url(${BgImg})` }}
         />
         {/* Black overlay */}
         <div className="absolute inset-0 bg-black bg-opacity-40" />
