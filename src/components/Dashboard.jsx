@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Services from './Services'
 import axios from 'axios'
-import bgImg from '../assets/images/bg.jpg'
+import BgImg from '../assets/images/bg.jpg'
 
 const Dashboard = () => {
  const [serviceMaster, setServiceMaster] = useState([])
@@ -32,7 +32,7 @@ useEffect(()=>{
     return (
         <>
             {/* // banner section start here */}
-            <div className="flex py-16 sm:py-20 md:py-28 lg:py-32 bg-cover bg-center bg-no-repeat text-black px-4 sm:px-6 lg:px-8" style={{ backgroundImage: `url(${bgImg})` }}>
+            <div className="flex py-16 sm:py-20 md:py-28 lg:py-32 bg-cover bg-center bg-no-repeat text-black px-4 sm:px-6 lg:px-8" style={{ backgroundImage: `url(${BgImg})` }}>
                 <div className="w-full flex justify-center items-center">
                     <div className="max-w-7xl w-full">
                         <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[40px] text-[#323132] font-light leading-tight">Tailored <span className="font-bold">Facility</span> Plans —</h1>

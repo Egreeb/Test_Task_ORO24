@@ -1,6 +1,6 @@
 import React from 'react'
 import Login from './login'
-import Logo from '../assets/images/logo.png'
+import logo from '../assets/images/logo.png'
 const Home = () => {
   return (
     <>
@@ -15,7 +15,7 @@ const Home = () => {
         {/* Top centered logo (ABOVE overlay) */}
         <div className="absolute top-6 left-1/2 -translate-x-1/2 z-30 ">
           <img
-            src={Logo}
+            src={logo}
             alt="Logo"
             className="w-36 h-auto"
           />
