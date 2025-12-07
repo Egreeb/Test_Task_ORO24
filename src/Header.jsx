@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { Menu, X, ShoppingCart, Search } from "lucide-react";
 import { FaStar, FaRegUser, FaCheck } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import logo from './assets/images/logo.png'
+
 const Header = () => {
     const [open, setOpen] = useState(false);
 
@@ -11,7 +13,7 @@ const Header = () => {
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <img src="/src/assets/images/logo.png" alt="ORO Facilities" className="h-8" />
+            <img src={logo} alt="ORO Facilities" className="h-8" />
           </div>
 
           {/* Desktop Nav */}
