@@ -1,10 +1,16 @@
 import React, { useState } from 'react'
 import { Menu, X, ShoppingCart, Search } from "lucide-react";
 import { FaStar, FaRegUser, FaCheck } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from './assets/images/logo.png'
 
 const Header = () => {
+const navigate = useNavigate()
+const  handleLogout = ()=>{
+  localStorage.removeItem("token");
+  localStorage.removeItem("user");
+  navigate("/");
+}
     const [open, setOpen] = useState(false);
 
   return (
@@ -38,12 +44,10 @@ const Header = () => {
               <ShoppingCart className="w-5 h-5" />
               <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs rounded-full px-1">2</span>
             </div>
-
-
-            <Link to={'/'} className="flex items-center space-x-1 hover:text-gray-300">
-              <span>Login</span>
+            <button onClick={handleLogout} className="flex items-center space-x-1 hover:text-gray-300">
+              <span>Logout</span>
               <FaRegUser className="text-white text-md" />
-            </Link>
+            </button>
           </nav>
 
 
@@ -65,9 +69,9 @@ const Header = () => {
             <div className="flex items-center space-x-2 pt-2">
               <Search className="w-5 h-5" />
               <ShoppingCart className="w-5 h-5" />
-              <Link to={'/'}>
-                <span className="ml-auto">Login</span>
-              </Link>
+              <button onClick={handleLogout}>
+                <span className="ml-auto">Logout</span>
+              </button>
             </div>
           </div>
         )}

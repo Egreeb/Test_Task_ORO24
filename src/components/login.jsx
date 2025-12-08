@@ -1,7 +1,8 @@
 import axios from 'axios'
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 const Login = () => {
+  const navigate = useNavigate()
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
@@ -18,7 +19,7 @@ const Login = () => {
 
   const handleSubmit = async(e)=>{
   e.preventDefault()
-      setLoading(true);
+    setLoading(true);
     setError("");
     setSuccess("");
     try {
@@ -38,9 +39,14 @@ const Login = () => {
           }
         }
       );
-
       console.log("API Response:", response.data);
+      const {token, data } = response.data;
+      localStorage.setItem("token", token);
+      localStorage.setItem("user", JSON.stringify(data));
       setSuccess("Login Successful!");
+            setTimeout(() => {
+        navigate("/dashboard");
+      }, 800);
 
     } catch (err) {
       console.error(err);
@@ -49,7 +55,6 @@ const Login = () => {
       setLoading(false);
     }
   }
-  console.log(formData)
   return (
     <>
     <div className="w-96 md:p-6 p-4 rounded-lg bg-white/60 backdrop-blur-md shadow-lg md:m-0 m-5">
@@ -63,8 +68,12 @@ const Login = () => {
            <label htmlFor="" className='font-normal my-3 block'>Password</label>
           <input type="password" name='password' value={formData.password} onChange={handleChange} placeholder="Password" className="py-2 px-2 w-full border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required/>
         </div>
-        <button className="bg-black mt-5 hover:bg-gray-800 w-full text-white py-2 rounded-md hover:bg-blue-700 transition">Login</button>
-        <Link to={'/dashboard'} className='text-center block text-blue-600 mt-2'>Go to Dashboard</Link>
+          {error && <p className="text-red-500 mt-2">{error}</p>}
+          {success && <p className="text-green-600 mt-2">{success}</p>}
+        <button className="bg-black mt-5 hover:bg-gray-800 w-full text-white py-2 rounded-md hover:bg-blue-700 transition">
+          {loading ? "Logging in..." : "Login"}
+        </button>
+        {/* <Link to={'/dashboard'} className='text-center block text-blue-600 mt-2'>Go to Dashboard</Link> */}
         </form>
     </div>
     </>
