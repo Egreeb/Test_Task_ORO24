@@ -45,7 +45,7 @@ const  handleLogout = ()=>{
               <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs rounded-full px-1">2</span>
             </div>
             <button onClick={handleLogout} className="flex items-center space-x-1 hover:text-gray-300">
-              <span>Logout</span>
+              <span className='px-3 py-1 rounded-lg bg-red-800 hover:bg-red-700 text-white font-semibold'>Logout</span>
               <FaRegUser className="text-white text-md" />
             </button>
           </nav>
