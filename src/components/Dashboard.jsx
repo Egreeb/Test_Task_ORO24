@@ -2,15 +2,29 @@ import React, { useEffect, useState } from 'react'
 import Services from './Services'
 import axios from 'axios'
 import BgImg from '../assets/images/bg.jpg'
+import { useNavigate } from 'react-router-dom'
 
 const Dashboard = () => {
  const [serviceMaster, setServiceMaster] = useState([])
  const [selectedCategory, setSelectedCategory] = useState(null);
  const [loading, setLoading] = useState(false)
+const [authChecked, setAuthChecked] = useState(false); 
 console.log(serviceMaster)
+const navigate = useNavigate()
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      navigate("/"); 
+    } else {
+      setAuthChecked(true); 
+    }
+  }, [navigate]);
+  
 useEffect(()=>{
+    if (!authChecked) return;
     getServiceMaster();
-},[])
+},[authChecked])
 
     const getServiceMaster = async()=>{
     try {
