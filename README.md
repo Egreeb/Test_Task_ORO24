@@ -1,16 +1,64 @@
-# React + Vite
+# ORO24 React Assessment – Test Task
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive React web application built for the ORO24 assessment.  
+Includes Login UI, Dashboard with Categories, Services listing, and Service Details (Bonus).
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Live Demo  
+https://test-task-oro-24.vercel.app/
 
-## React Compiler
+## 📦 GitHub Repo  
+https://github.com/Egreeb/Test_Task_ORO24
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 📌 Features Completed
+- ✔ Fully responsive UI (mobile → large screens)
+- ✔ Login Screen (UI completed)
+- ✔ Dashboard – Fetch & display categories
+- ✔ Services – Fetch services by category with pagination
+- ✔ Service Details – Full detailed view (Bonus)
+- ✔ Smooth 3-step data flow: **Categories → Services → Details**
+- ✔ Deployed on Vercel
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🔌 APIs Integrated
+- **Get Categories:** `GET /Services/GetServiceMaster`
+- **Get Services:** `POST /Services/GetServices`
+- **Get Service Details:** `POST /Services/GetServiceDetails`
+
+---
+
+## ❗ Login API Issue
+The provided login API (`/customertoken/withoutOTP`) is **not returning any valid response**, even in Postman with correct header `X-App-Id: KYCTY`.  
+Once a working endpoint is shared, I will integrate the login logic immediately.  
+UI is fully completed with temporary navigation.
+
+---
+
+## 📂 Project Structure (Short)
+src/
+├── components/
+│ ├── Dashboard.jsx
+│ ├── Services.jsx
+│ ├── ServiceDetails.jsx
+│ ├── login.jsx
+├── App.jsx
+├── MainLayout.jsx
+vercel.json
+
+## ⚙️ Run Locally
+npm install
+npm run dev
+
+
+---
+
+👤 Developer
+
+Gajendra Dube
+📞 +971 547241907
+📧 gajjudube4@gmail.com
+
