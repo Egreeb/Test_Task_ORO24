@@ -11,12 +11,16 @@ const Services = ({ catId }) => {
   const [page, setPage] = useState(1);
   const pageSize = 3; 
   console.log(Services)
+      useEffect(() => {
+        setPage(1);    
+        setseletedser(null); 
+      }, [catId]);
 
   useEffect(() => {
     if (catId) {
       getServicesByCat(catId, page)
     }
-  }, [catId,page])
+  }, [catId, page])
 
   const getServicesByCat = async (id, pageNum = 1) => {
     try {
@@ -61,7 +65,7 @@ const Services = ({ catId }) => {
         ) : (
         <div className="col-span-12 md:col-span-6">
         {Services.length === 0 && (
-        <p className="text-gray-500 text-center py-6 text-red-600">There are no services available at the moment. Please check back later.</p>
+          <p className="text-gray-500 text-center py-6 text-red-600">There are no services available at the moment. Please check back later.</p>
         )}
           {Services.map((data) => {
             const ImgURl = data.PrimaryImage ? data.PrimaryImage : deFaultImg
@@ -98,6 +102,7 @@ const Services = ({ catId }) => {
           }
           )}
           {/* paingation */}
+
         {Services.length === 0 ? (
           <p className="text-gray-500 text-center py-6"></p>
         ):
