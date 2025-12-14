@@ -18,33 +18,33 @@ const Login = () => {
   }
 
   const handleSubmit = async(e)=>{
-  e.preventDefault()
-    setLoading(true);
-    setError("");
-    setSuccess("");
-    try {
-      const response = await axios.post(
-        "https://oro24world.com/api/customertoken/withoutOTP",
-        {
-          email: formData.email,
-          password: formData.password,
-          IPAddress: "",
-          Version: "",
-          Platform: ""
-        },
-        {
-          headers: {
-            "X-App-Id": "KYCTY",
-            "Content-Type": "application/json"
-          }
-        }
-      );
-      console.log("API Response:", response.data);
-      const {token, data } = response.data;
-      localStorage.setItem("token", token);
-      localStorage.setItem("user", JSON.stringify(data));
+  // e.preventDefault()
+  //   setLoading(true);
+  //   setError("");
+  //   setSuccess("");
+  //   try {
+  //     const response = await axios.post(
+  //       "https://oro24world.com/api/customertoken/withoutOTP",
+  //       {
+  //         email: formData.email,
+  //         password: formData.password,
+  //         IPAddress: "",
+  //         Version: "",
+  //         Platform: ""
+  //       },
+  //       {
+  //         headers: {
+  //           "X-App-Id": "KYCTY",
+  //           "Content-Type": "application/json"
+  //         }
+  //       }
+  //     );
+  //     console.log("API Response:", response.data);
+  //     const {token, data } = response.data;
+  //     localStorage.setItem("token", token);
+  //     localStorage.setItem("user", JSON.stringify(data));
       setSuccess("Login Successful!");
-            setTimeout(() => {
+      setTimeout(() => {
         navigate("/dashboard");
       }, 800);
 
