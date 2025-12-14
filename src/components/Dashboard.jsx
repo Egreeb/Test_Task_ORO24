@@ -13,18 +13,18 @@ console.log(serviceMaster)
 const navigate = useNavigate()
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (!token) {
-      navigate("/"); 
-    } else {
-      setAuthChecked(true); 
-    }
-  }, [navigate]);
+  //   const token = localStorage.getItem("token");
+  //   if (!token) {
+  //     navigate("/"); 
+  //   } else {
+  //     setAuthChecked(true); 
+  //   }
+  // }, [navigate]);
   
 useEffect(()=>{
-    if (!authChecked) return;
+    // if (!authChecked) return;
     getServiceMaster();
-},[authChecked])
+},[])
 
     const getServiceMaster = async()=>{
     try {
